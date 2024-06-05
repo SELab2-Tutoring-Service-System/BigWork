@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>教师页面</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body style="background-color:#f2f5f9">
+    <header>
+        <div class="logo_style">琢玉</div>
+        <nav>
+            <ul class="nav_links">
+                     <li><a href="../../homepage/templates/homepage_tea.html">主页</a></li>
+                <li><a href=javascript:;>信息发布</a></li>
+                <li><a href=javascript:;>NavBarRight</a></li>
+            </ul>
+        </nav>
+        <a href="../../login/templates/login_student.html" class="exit_button"><button>退出登录</button></a>
+    </header>
+    <main>
+        <div class="wtf_main">
+            <div class="form-container">
+                <h2>信息发布</h2>
+                <form id="publishForm" action="/submit" method="post">
+                    <div class="form-group">
+                        <label for="subject">科目:</label>
+                        <input type="text" id="subject" name="subject" class="required">
+                    </div>
+                    <div class="form-group">
+                        <label for="stage">阶段:</label>
+                        <input type="text" id="stage" name="stage" class="required">
+                        <span class="msg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="start-time">开始时间:</label>
+                        <input type="datetime-local" id="start-time" name="start-time" class="required">
+                        <span class="msg"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="end-time">结束时间:</label>
+                        <input type="datetime-local" id="end-time" name="end-time" class="required">
+                        <span class="msg"></span>
+                    </div>
+                    <button type="button" id="btnSubmit">提交</button>
+                </form>
+        </div>
+    </main>
+    <div class="soft_info">
+		<h3>
+		《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+		</h3>
+	</div>
+ 
+    <script>
+        $(function(){
+            // 确保结束时间不早于开始时间
+            $("#start-time").on("change", function() {
+                var startTime = $(this).val();
+                $("#end-time").attr("min", startTime);
+            });
+
+            $("form :input").blur(function(){
+                var $parent = $(this).parent();
+                $parent.find(".msg").hide(); // 隐藏之前的提示信息
+
+                // 验证阶段
+                if($(this).is("#stage")){
+                    var stageVal = $.trim(this.value);
+                    var validStages = ["小学", "初中", "高中", "大学"];
+                    if(stageVal == "" || !validStages.includes(stageVal)){
+                        $parent.find(".msg").text("请输入有效的阶段（小学，初中，高中，大学）").css("color","red").show();
+                    }
+                }
+            }).keyup(function(){
+                $(this).triggerHandler("blur"); 
+            }).focus(function(){
+                $(this).triggerHandler("blur");
+            });
+
+            $("#btnSubmit").click(function(){
+                $("form .required:input").trigger("blur"); 
+                var numError = $("form .onError").length;
+                if(numError){
+                    return false;
+                }
+
+                var emptyFields = [];
+                if ($("#subject").val() == "") {
+                    emptyFields.push("科目");
+                    $("#subject").parent().find(".msg").text("科目不能为空").css("color","red").show();
+                } else {
+                    $("#subject").parent().find(".msg").hide();
+                }
+                if ($("#stage").val() == "") {
+                    emptyFields.push("阶段");
+                    $("#stage").parent().find(".msg").text("阶段不能为空").css("color","red").show();
+                } else {
+                    $("#stage").parent().find(".msg").hide();
+                }
+                if ($("#start-time").val() == "") {
+                    emptyFields.push("开始时间");
+                    $("#start-time").parent().find(".msg").text("开始时间不能为空").css("color","red").show();
+                } else {
+                    $("#start-time").parent().find(".msg").hide();
+                }
+                if ($("#end-time").val() == "") {
+                    emptyFields.push("结束时间");
+                    $("#end-time").parent().find(".msg").text("结束时间不能为空").css("color","red").show();
+                } else {
+                    $("#end-time").parent().find(".msg").hide();
+                }
+
+                if (emptyFields.length > 0) {
+                    return false;
+                }
+                alert('提交成功！')
+            });
+        });
+    </script>
+</body>
+
+</html>

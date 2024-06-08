@@ -6,6 +6,7 @@
     <title>学生页面</title>
     <link rel="stylesheet" href="../assets/css/style.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="../js/recommend_script.js"></script>
 </head>
 
 <body style="background-color:#f2f5f9">
@@ -13,118 +14,50 @@
         <div class="logo_style">琢玉</div>
         <nav>
             <ul class="nav_links">
-                     <li><a href="../../homepage/templates/homepage_stu.html">主页</a></li>
-                <li><a href=javascript:;>信息发布</a></li>
-                <li><a href=javascript:;>NavBarRight</a></li>
+                <li><a href="../../homepage/templates/homepage_stu.html">主页搜索</a></li>
+                <li><a href="javascript:;">查询结果</a></li>
+                <li><a href="javascript:;">NavBarRight</a></li>
             </ul>
         </nav>
         <a href="../../login/templates/login_student.html" class="exit_button"><button>退出登录</button></a>
     </header>
+
     <main>
         <div class="wtf_main">
-            <div class="form-container">
-                <h2>信息发布</h2>
-                <form id="publishForm" action="/submit" method="post">
-                    <div class="form-group">
-                        <label for="subject">科目:</label>
-                        <input type="text" id="subject" name="subject" class="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="stage">阶段:</label>
-                        <input type="text" id="stage" name="stage" class="required">
-                        <span class="msg"></span>
-                    </div>
-                    <div class="form-group">
-                        <label for="time">时间:</label>
-                        <input type="datetime-local" id="time" name="time" class="required">
-                    </div>
-                    <div class="form-group">
-                        <label for="gender">期望性别:</label>
-                        <select id="gender" name="gender" class="required">
-                            <option value="male">男</option>
-                            <option value="female">女</option>
-                            <option value="any">不限</option>
-                        </select>
-                    </div>
-                    <button type="button" id="btnSubmit">提交</button>
-                </form>
+            <div class="stu_recom_box2">
+                <div class="stu_text_box2">家教推荐</div>
+                <div id="recommendations"></div> <!-- 用于显示推荐结果 -->
+
+                
+                <table id="data-table" class="generate_table">
+                    <thead>
+                        <tr>
+                            <th class="generate_table">ID</th>
+                            <th class="generate_table">Name</th>
+                            <th class="generate_table">Sex</th>
+                            <th class="generate_table">School</th>
+                            <th class="generate_table">Stage</th>
+                            <th class="generate_table">Subject</th>
+                            <th class="generate_table">Start_time</th>
+                            <th class="generate_table">End_time</th>
+                            <!-- 根据你的数据库表的字段名添加更多列 -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 数据行将通过 JavaScript 动态插入 -->
+                    </tbody>
+                </table>
+
+
+            </div>
         </div>
     </main>
     <div class="soft_info">
-		<h3>
-		《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
-		</h3>
-	</div>
-
-    <script>
-        $(function(){
-            $("form :input").blur(function(){
-                var $parent = $(this).parent();
-                $parent.find(".msg").remove(); // 删除以前的提醒元素
-                // 验证阶段
-                if($(this).is("#stage")){
-                    var stageVal = $.trim(this.value);
-                    var validStages = ["小学", "初中", "高中","大学"];
-                    if(stageVal == "" || !validStages.includes(stageVal)){
-                        var errorMsg = "请输入有效的阶段（小学，初中，高中，大学）";
-                        $parent.append("<span class='msg onError'>" + errorMsg + "</span>");
-                    } else {
-                        var okMsg="输入正确";
-                        $parent.append("<span class='msg onSuccess'>" + okMsg + "</span>");
-                    }
-                }
-            }).keyup(function(){
-                $(this).triggerHandler("blur"); 
-            }).focus(function(){
-                $(this).triggerHandler("blur");
-            });
-
-            $("#btnSubmit").click(function(){
-                $("form .required:input").trigger("blur"); 
-                var numError = $("form .onError").length;
-                if(numError){
-                    return false;
-                }
-
-                var emptyFields = [];
-                if ($("#subject").val() == "") {
-                    emptyFields.push("科目");
-                    $("#subject").parent().find(".msg").text("科目不能为空").addClass("onError").show();
-                } else {
-                    $("#subject").parent().find(".msg").removeClass("onError").hide();
-                }
-                if ($("#stage").val() == "") {
-                    emptyFields.push("阶段");
-                    $("#stage").parent().find(".msg").text("阶段不能为空").addClass("onError").show();
-                } else {
-                    $("#stage").parent().find(".msg").removeClass("onError").hide();
-                }
-                if ($("#time").val() == "") {
-                    emptyFields.push("时间");
-                    $("#time").parent().find(".msg").text("时间不能为空").addClass("onError").show();
-                } else {
-                    $("#time").parent().find(".msg").removeClass("onError").hide();
-                }
-                if ($("#gender").val() == "") {
-                    emptyFields.push("期望性别");
-                    $("#gender").parent().find(".msg").text("期望性别不能为空").addClass("onError").show();
-                } else {
-                    $("#gender").parent().find(".msg").removeClass("onError").hide();
-                }
-
-                if (emptyFields.length > 0) {
-                    var errorMsg = "以下项目不能为空： " + emptyFields.join(", ");
-                    alert(errorMsg);
-                    return false;
-                }
-
-                alert('提交成功！')
-            });
-        });
-    </script>
-
-
-
+        <h3>
+        《琢玉》是一款由哈尔滨工业大学软工自主研发的游戏。游戏发生在一个被称作“银河系猎户座第三旋臂太阳系第三行星”的世界，玩家将扮演一个被称作“大学牲”的神秘角色，在学校的旅程中邂逅风格各异，要求独特的DDL，并和同学们一起击败考试，寻找丢失的学分绩，同时逐步发掘“通宵写报告”的真相
+        </h3>
+    </div>
+    <script src="../js/recommend_script.js"></script>
 </body>
 
 </html>

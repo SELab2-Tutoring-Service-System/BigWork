@@ -7,7 +7,6 @@
     top: -5px;
 }
 
-
 li,a{
     font-family: "Montserrat",sans-serif;
     font-weight: 500;
@@ -17,6 +16,15 @@ li,a{
     text-decoration: none;
 }
 
+/*
+.exit_button{
+    font-family: "Montserrat",sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color:white;
+    text-decoration: none;
+}
+*/
 
 header{
     border: 1px solid #d5d5d5;
@@ -28,6 +36,9 @@ header{
     border-radius:10px;
 }
 
+.generate_table{
+    padding:6px;
+}
 
 .nav_links{
     list-style: none;
@@ -64,8 +75,6 @@ header button{
     cursor: pointer;
     transition: all 0.3s ease 0s;
  }
-
-
 header button:hover{
     background-color: rgba(0, 136, 169, 0.7);
  }
@@ -75,13 +84,119 @@ header button:hover{
 .wtf_main {
     
     width: 1200px;
-    height: 500px;
+    height: 700px;
     margin: 10px auto;
-    padding:100px 0 0 0;
     background-color: #f2f5f9;
 }
 
-/*信息发布表*/
+
+/*学生已发布信息框*/
+.home_stu_submited{
+    height: 300px;
+    width: 700px;
+    padding:20px;
+    margin:10px auto;
+    /*
+    padding-left: 100px;
+    padding-top: 100px;
+    padding-right: 100px;
+    /*margin: 100px auto;*/
+    background-color:#f2f5f9;
+    border: 1px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+
+}
+
+
+
+
+/*已发布信息box1*/
+.stu_text_box1{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:100px;
+    border: none;
+    border-radius: 15% 0 0 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+}
+
+/*学生已发布信息查询按钮*/
+.stu_submited_search{
+    /*修饰搜索按钮部分*/
+    border: none;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    /*background-color: rgb(35, 95, 146);*/
+    border-radius: 0 15% 15% 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+
+/*学生推荐家教信息框*/
+.stu_recom_box2{
+    height: 300px;
+    width: 700px;
+    padding:20px;
+    margin:10px auto;
+    /*
+    padding-left: 100px;
+    padding-top: 100px;
+    padding-right: 100px;
+    /*margin: 100px auto;*/
+    background-color:#f2f5f9;
+    border: 1px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+}
+
+/*推荐家教信息box2*/
+.stu_text_box2{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:100px;
+    border: none;
+    border-radius: 15% 15% 15% 15%;
+    background-color: #0f88eb;
+}
+
+/*推荐家教信息查询按钮*/
+.stu_recom_search{
+    /*修饰搜索按钮部分*/
+    border: none;
+    width: 80px;
+    height: 40px;
+    font-size: 16px;
+    color: white;
+    background-color: red;
+    /*background-color: rgb(35, 95, 146);*/
+    border-radius: 0 15% 15% 0;
+    cursor: pointer;
+    position: absolute;
+}
+
+.soft_info{
+    width:890px;
+    margin:auto;
+}
+
+
+
+
+/*新的*/
 .form-container {
     background-color: #fff;
     padding: 20px;

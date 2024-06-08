@@ -90,7 +90,7 @@ header button:hover{
 /*学生已发布信息框*/
 .home_stu_submited{
     height: 300px;
-    width: 700px;
+    width: 800px;
     padding:20px;
     margin:10px auto;
     /*
@@ -156,6 +156,9 @@ header button:hover{
     box-shadow: 1px 1px 1px 1px #0f88eb;
 }
 
+.generate_table{
+    padding:6px;
+}
 /*推荐家教信息box2*/
 .stu_text_box2{
     font-family: "Montserrat",sans-serif;
@@ -185,6 +188,77 @@ header button:hover{
     cursor: pointer;
     position: absolute;
 }
+
+.soft_info{
+    width:890px;
+    margin:auto;
+}
+
+
+
+
+/*新的*/
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin:auto;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+h2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.msg {
+    display: none;
+    margin-top: 5px;
+}
+
+.onError {
+    color: red;
+    display: inline-block;
+}
+
+.onSuccess {
+    color: green;
+    display: inline-block;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
 
 .soft_info{
     width:890px;

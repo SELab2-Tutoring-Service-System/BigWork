@@ -1,7 +1,6 @@
 $(function() {
     $("#btnSubmit").click(function() {
         const student_mobile = localStorage.getItem("student_mobile");
-
         const subject = $("#subject").val();
         const stage = $("#stage").val();
         const time = $("#time").val();

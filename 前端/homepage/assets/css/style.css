@@ -81,7 +81,7 @@ header button:hover{
 .wtf_main {
     
     width: 1200px;
-    height: 700px;
+    height: 1800px;
     margin: 10px auto;
     background-color: #f2f5f9;
 }
@@ -89,7 +89,7 @@ header button:hover{
 
 /*学生已发布信息框*/
 .home_stu_submited{
-    height: 300px;
+    height: 500px;
     width: 800px;
     padding:20px;
     margin:10px auto;
@@ -99,7 +99,7 @@ header button:hover{
     padding-right: 100px;
     /*margin: 100px auto;*/
     background-color:#f2f5f9;
-    border: 1px solid #0f88eb;
+    border: 2px solid #0f88eb;
     border-radius:10px;
     box-shadow: 1px 1px 1px 1px #0f88eb;
 
@@ -265,4 +265,303 @@ button:hover {
     margin:auto;
 }
 
+/*为卡片打孔*/
+.circle {
+    width: 20px;
+    height: 20px;
+    background-color: white;
+    color:white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+/*已发布信息框*/
+.home_stu_submited .titlebox{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:120px;
+    border: none;
+    border-radius: 15% 15% 15% 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 25px;
+}
+
+/*已发布信息表*/
+
+.submited_header_circle{
+    width:5%;
+    text-align:center;
+}
+.submited_header_stage{
+    width:10%;
+}
+.submited_header_subject{
+    width:10%;
+    padding-left: 40px;
+}
+.submited_header_ts{
+    width:25%;
+    padding-left: 100px;
+}
+.submited_header_te{
+    width:25%;
+    padding-left:100px;
+}
+.submited_header_option{
+    width:20%;
+}
+
+
+.submited_card_circle{
+    flex-basis:5%;
+}
+
+.submited_card_stage {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.submited_card_subject {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.submited_card_ts{
+    flex-basis: 25%;
+    text-align: left;
+}
+
+.submited_card_te{
+    flex-basis: 25%;
+}
+
+.submited_card_option{
+    flex-basis: 20%;
+}
+
+#submited_button{
+    height:24px;
+    width:80px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0px;
+    background-color: #0f88eb;
+}
+
+/**/
+
+/*待确认框*/
+.not_confirm{
+    width:850px;
+    height:600px;
+    /*background-color: red;*/
+    margin: 10px auto;
+    background-color:#f2f5f9;
+    border: 2px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+}
+
+/*待确认 标题*/
+.not_confirm .titlebox{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:120px;
+    border: none;
+    border-radius: 15% 15% 15% 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+/*待确认表 header*/
+.unconfirm_header_circle{
+    width:5%;
+    text-align:center;
+}
+.unconfirm_header_id{
+    width:20%;
+    padding-left: 35px;
+}
+.unconfirm_header_name{
+    width:10%;
+    padding-left: 30px;
+}
+.unconfirm_header_stage{
+    width:10%;
+    padding-left: 40px;
+}
+.unconfirm_header_subject{
+    width:10%;
+    padding-left: 50px;
+}
+.unconfirm_header_time{
+    width:25%;
+    padding-left: 80px;
+}
+.unconfirm_header_option{
+    width:20%;
+}
+
+
+/*待确认表 卡片*/
+.card {
+    background-color: #f0f4f8;
+    border: 1px solid white;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    box-shadow: 1px 1px 1px 1px #dae5f1;
+    border-radius: 10px;
+}
+
+.card-body {
+    display: flex;
+    justify-content: space-between;
+    flex: 1;
+}
+
+
+
+.unconfirm_card_circle{
+    flex-basis:5%;
+}
+.unconfirm_card_id {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.unconfirm_card_name {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+
+.unconfirm_card_stage {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.unconfirm_card_subject {
+    flex-basis: 10%;
+    text-align: left;
+}
+
+.unconfirm_card_time{
+    flex-basis: 25%;
+    text-align: left;
+}
+
+
+
+.unconfirm_card_option{
+    flex-basis: 20%;
+}
+
+#confirm_button{
+    height:24px;
+    width:80px;
+    text-align: center;
+    font-size: 16px;
+    padding: 0px;
+    background-color: #0f88eb;
+}
+
+/*正在上课*/
+.doing{
+    width:850px;
+    height:600px;
+    margin: 10px auto;
+    background-color:#f2f5f9;
+    border: 2px solid #0f88eb;
+    border-radius:10px;
+    box-shadow: 1px 1px 1px 1px #0f88eb;
+}
+.doing .titlebox{
+    font-family: "Montserrat",sans-serif;
+    font-size:18px;
+    color:white;
+    text-align: center;
+    line-height:40px;
+    height:40px;
+    width:120px;
+    border: none;
+    border-radius: 15% 15% 15% 15%;
+    background-color: #0f88eb;
+    display: inline-block;
+    margin-top: 30px;
+    margin-left: 40px;
+}
+
+/*待确认表 header*/
+.doing_header_circle{
+    width:5%;
+    text-align:center;
+}
+.doing_header_id{
+    width:20%;
+    padding-left: 35px;
+}
+.doing_header_name{
+    width:10%;
+    padding-left: 30px;
+}
+.doing_header_stage{
+    width:10%;
+}
+.doing_header_subject{
+    width:10%;
+}
+.doing_header_ts{
+    width:25%;
+}
+.doing_header_te{
+    width:20%;
+}
+
+.doing_card_circle{
+    flex-basis:5%;
+}
+.doing_card_id {
+    flex-basis: 20%;
+    text-align: center;
+}
+
+.doing_card_name {
+    flex-basis: 10%;
+    text-align: right;
+}
+
+
+.doing_card_stage {
+    flex-basis: 10%;
+    text-align: center;
+}
+
+.doing_card_subject {
+    flex-basis: 10%;
+    text-align: center;
+}
+
+.doing_card_ts{
+    flex-basis: 25%;
+    text-align: center;
+}
+
+.doing_card_te{
+    flex-basis: 20%;
+}
